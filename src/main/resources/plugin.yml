@@ -1,6 +1,6 @@
 name: AseronSMPPlugin
-version: '1.0'
+version: '1.2'
 main: fr.azerty.aseronSMPPlugin.AseronSMPPlugin
 api-version: '1.21'
 authors: [ SKZ_azerty ]
-description: Main Plugin
+description: AseronSMP
