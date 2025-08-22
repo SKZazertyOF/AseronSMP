@@ -13,6 +13,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.enchantments.Enchantment;
 
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -26,18 +27,16 @@ public class DragonSword implements Listener {
     public DragonSword(JavaPlugin plugin) {
         this.plugin = plugin;
 
-        // Tâche répétée toutes les 2 secondes
         new BukkitRunnable() {
             @Override
             public void run() {
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     ItemStack item = player.getInventory().getItemInMainHand();
                     if (isDragonSword(item)) {
-                        // Applique Strength II pour 2 secondes (40 ticks)
+
                         player.addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, 40, 1, false, false));
                         playersHoldingSword.put(player.getUniqueId(), true);
                     } else {
-                        // Retire l'effet si le joueur ne tient pas l'épée
                         if (playersHoldingSword.getOrDefault(player.getUniqueId(), false)) {
                             player.removePotionEffect(PotionEffectType.STRENGTH);
                             playersHoldingSword.put(player.getUniqueId(), false);
@@ -53,10 +52,20 @@ public class DragonSword implements Listener {
         ItemMeta meta = sword.getItemMeta();
         if (meta != null) {
             meta.setDisplayName(ChatColor.YELLOW + "Épée du Dragon");
+            meta.addEnchant(Enchantment.SHARPNESS, 6, true);
+            meta.addEnchant(Enchantment.FIRE_ASPECT, 2, true);
+            meta.addEnchant(Enchantment.LOOTING, 3, true);
+            meta.addEnchant(Enchantment.SWEEPING_EDGE, 3, true);
+            meta.addEnchant(Enchantment.UNBREAKING, 3, true);
+            meta.addEnchant(Enchantment.MENDING, 1, true);
+
+            meta.setUnbreakable(true);
+
             sword.setItemMeta(meta);
         }
         return sword;
     }
+
 
     private boolean isDragonSword(ItemStack item) {
         return item != null && item.hasItemMeta()

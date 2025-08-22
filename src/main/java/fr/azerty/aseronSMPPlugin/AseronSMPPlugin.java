@@ -18,6 +18,8 @@ public final class AseronSMPPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new DragonSword(this), this);
         getServer().getPluginManager().registerEvents(new BlessedPickaxe(this), this);
         getServer().getPluginManager().registerEvents(new MysticBow(this), this);
+        getCommand("crafts").setExecutor(new fr.azerty.aseronSMPPlugin.CraftCommand(this));
+
 
 
         printConsoleHeader();

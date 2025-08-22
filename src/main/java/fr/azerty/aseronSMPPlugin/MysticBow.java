@@ -53,19 +53,24 @@ public class MysticBow implements Listener {
     public static ItemStack getMysticBow() {
         ItemStack bow = new ItemStack(Material.BOW);
         ItemMeta meta = bow.getItemMeta();
+
         if (meta != null) {
+
             meta.setDisplayName(ChatColor.DARK_PURPLE + "Arc Mystique");
 
-            meta.addEnchant(Enchantment.POWER, 5, true);
-            meta.addEnchant(Enchantment.FLAME, 1, true);
-            meta.addEnchant(Enchantment.PUNCH, 2, true);
-            meta.addEnchant(Enchantment.INFINITY, 1, true);
+            meta.addEnchant(Enchantment.POWER, 5, true);   // Power V
+            meta.addEnchant(Enchantment.FLAME, 1, true);     // Flame I
+            meta.addEnchant(Enchantment.PUNCH, 2, true); // Punch II
+            meta.addEnchant(Enchantment.INFINITY, 1, true); // Infinity
+            meta.addEnchant(Enchantment.UNBREAKING, 3, true);     // Unbreaking III
+
             meta.setUnbreakable(true);
 
             List<String> lore = new ArrayList<>();
-            lore.add(ChatColor.GRAY + "Un arc mystique qui donne Speed II");
-            lore.add(ChatColor.GRAY + "quand on le tient");
+            lore.add(ChatColor.GRAY + "Un arc mystique qui confère " + ChatColor.AQUA + "Speed II");
+            lore.add(ChatColor.GRAY + "lorsqu’on le manie.");
             meta.setLore(lore);
+
 
             bow.setItemMeta(meta);
         }

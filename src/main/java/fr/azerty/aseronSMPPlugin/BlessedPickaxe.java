@@ -52,6 +52,9 @@ public class BlessedPickaxe implements Listener {
             meta.setDisplayName(ChatColor.GOLD + "Pioche Bénie");
             meta.addEnchant(Enchantment.EFFICIENCY, 5, true);
             meta.addEnchant(Enchantment.FORTUNE, 4, true);
+
+            meta.setUnbreakable(true);
+
             pickaxe.setItemMeta(meta);
         }
         return pickaxe;
