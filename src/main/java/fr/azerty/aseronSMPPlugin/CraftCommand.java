@@ -106,12 +106,12 @@ public class CraftCommand implements CommandExecutor, Listener, TabCompleter {
                 new ItemStack(Material.DIAMOND),
                 new ItemStack(Material.DRAGON_EGG),
                 new ItemStack(Material.DIAMOND),
+                new ItemStack(Material.DIAMOND),
                 new ItemStack(Material.NETHERITE_SWORD),
-                new ItemStack(Material.NETHERITE_INGOT),
+                new ItemStack(Material.DIAMOND),
                 new ItemStack(Material.NETHER_STAR),
                 new ItemStack(Material.NETHERITE_INGOT),
-                new ItemStack(Material.NETHER_STAR),
-                new ItemStack(Material.NETHERITE_INGOT)
+                new ItemStack(Material.NETHER_STAR)
         };
         for (int i = 0; i < slots.length; i++) inv.setItem(slots[i], ingredients[i]);
         inv.setItem(24, DragonSword.getDragonSword());
