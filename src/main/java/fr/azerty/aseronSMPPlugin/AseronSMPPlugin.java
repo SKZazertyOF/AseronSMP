@@ -13,6 +13,7 @@ public final class AseronSMPPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        new NekoHammer(this);
 
         Receipe.registerReceipes(this);
         getServer().getPluginManager().registerEvents(new DragonSword(this), this);
