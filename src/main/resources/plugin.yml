@@ -1,8 +1,10 @@
 name: AseronSMPPlugin
-version: '1.3.4'
+version: '1.3.7'
 main: fr.azerty.aseronSMPPlugin.AseronSMPPlugin
 api-version: '1.21'
 authors: [ SKZ_azerty ]
 description: AseronSMP
 commands:
   crafts:
+  ae:
+  spawn:

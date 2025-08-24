@@ -1,12 +1,12 @@
-package fr.azerty.aseronSMPPlugin;
+package fr.azerty.aseronSMPPlugin.command;
 
-import fr.azerty.aseronSMPPlugin.DragonSword;
-import fr.azerty.aseronSMPPlugin.BlessedPickaxe;
-import fr.azerty.aseronSMPPlugin.MysticBow;
-import fr.azerty.aseronSMPPlugin.OracleMask;
-import fr.azerty.aseronSMPPlugin.BrasierChestplate;
-import fr.azerty.aseronSMPPlugin.GardienLeggings;
-import fr.azerty.aseronSMPPlugin.VagueBoots;
+import fr.azerty.aseronSMPPlugin.Item.DragonSword;
+import fr.azerty.aseronSMPPlugin.Item.BlessedPickaxe;
+import fr.azerty.aseronSMPPlugin.Item.MysticBow;
+//import fr.azerty.aseronSMPPlugin.OracleMask;
+import fr.azerty.aseronSMPPlugin.Item.BrasierChestplate;
+import fr.azerty.aseronSMPPlugin.Item.GardienLeggings;
+import fr.azerty.aseronSMPPlugin.Item.VagueBoots;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -174,7 +174,7 @@ public class CraftCommand implements CommandExecutor, Listener, TabCompleter {
                 new ItemStack(Material.AIR)
         };
         for (int i = 0; i < slots.length; i++) inv.setItem(slots[i], ingredients[i]);
-        inv.setItem(24, OracleMask.getOracleMask());
+//        inv.setItem(24, OracleMask.getOracleMask());
         fillWithGlass(inv);
         return inv;
     }

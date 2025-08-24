@@ -1,10 +1,16 @@
 package fr.azerty.aseronSMPPlugin;
 
+import fr.azerty.aseronSMPPlugin.Item.*;
+import fr.azerty.aseronSMPPlugin.command.CraftCommand;
+import fr.azerty.aseronSMPPlugin.listener.TableCraftListener;
+import fr.azerty.aseronSMPPlugin.manager.OpManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import fr.azerty.aseronSMPPlugin.command.SpawnCommand;
 
 public final class AseronSMPPlugin extends JavaPlugin {
 
@@ -15,14 +21,18 @@ public final class AseronSMPPlugin extends JavaPlugin {
         instance = this;
         new NekoHammer(this);
 
+
+
         Receipe.registerReceipes(this);
         getServer().getPluginManager().registerEvents(new DragonSword(this), this);
         getServer().getPluginManager().registerEvents(new BlessedPickaxe(this), this);
         getServer().getPluginManager().registerEvents(new MysticBow(this), this);
         getServer().getPluginManager().registerEvents(new TableCraftListener(), this);
-        getCommand("crafts").setExecutor(new fr.azerty.aseronSMPPlugin.CraftCommand(this));
+        getServer().getPluginManager().registerEvents(new OpManager(), this);
+        getCommand("crafts").setExecutor(new CraftCommand(this));
+        getCommand("ae").setExecutor(new AECommand());
 
-
+        StringDuper.register(this);
 
         printConsoleHeader();
         sendConsoleMessage(ChatColor.DARK_GREEN + "Version: " + ChatColor.GOLD + getDescription().getVersion());
@@ -33,13 +43,23 @@ public final class AseronSMPPlugin extends JavaPlugin {
             @Override
             public void run() {
                 for (Player player : Bukkit.getOnlinePlayers()) {
-                    OracleMask.applyEffect(player);
+//                    OracleMask.applyEffect(player);
                     BrasierChestplate.applyEffect(player);
                     GardienLeggings.applyEffect(player);
                     VagueBoots.applyEffect(player);
                 }
             }
         }.runTaskTimer(this, 0, 40); // 40 ticks = 2 secondes
+
+        SpawnCommand spawnCmd = new SpawnCommand();
+        getCommand("spawn").setExecutor(spawnCmd);
+
+        getServer().getPluginManager().registerEvents(new org.bukkit.event.Listener() {
+            @EventHandler
+            public void onDamage(org.bukkit.event.entity.EntityDamageByEntityEvent event) {
+                spawnCmd.registerHitEvent(event);
+            }
+        }, this);
     }
 
     @Override

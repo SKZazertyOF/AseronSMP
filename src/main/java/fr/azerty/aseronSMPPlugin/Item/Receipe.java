@@ -1,4 +1,4 @@
-package fr.azerty.aseronSMPPlugin;
+package fr.azerty.aseronSMPPlugin.Item;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -70,17 +70,17 @@ public class Receipe {
         // =========================
         // 4) Masque de l’Oracle (Casque)
         // =========================
-        ItemStack oracleMask = OracleMask.getOracleMask();
-        NamespacedKey key4 = new NamespacedKey(plugin, "oracle_mask");
-        ShapedRecipe recipe4 = new ShapedRecipe(key4, oracleMask);
-
-        recipe4.shape("ooo",
-                "o o",
-                "   ");
-
-        recipe4.setIngredient('o', Material.NETHERITE_INGOT);
-
-        Bukkit.addRecipe(recipe4);
+//        ItemStack oracleMask = OracleMask.getOracleMask();
+//        NamespacedKey key4 = new NamespacedKey(plugin, "oracle_mask");
+//        ShapedRecipe recipe4 = new ShapedRecipe(key4, oracleMask);
+//
+//        recipe4.shape("ooo",
+//                "o o",
+//                "   ");
+//
+//        recipe4.setIngredient('o', Material.NETHERITE_INGOT);
+//
+//        Bukkit.addRecipe(recipe4);
 
         // =========================
         // 5) Plastron du Brasier

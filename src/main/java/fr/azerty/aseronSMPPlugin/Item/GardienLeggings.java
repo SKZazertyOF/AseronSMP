@@ -1,4 +1,4 @@
-package fr.azerty.aseronSMPPlugin;
+package fr.azerty.aseronSMPPlugin.Item;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
